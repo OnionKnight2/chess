@@ -16,21 +16,22 @@ class Game
     # rook = starting_board.return_piece([7, 0])
     # p rook.available_moves
 
-    pawn = Pawn.new(board, :white, [5, 0])
-    pawn2 = Pawn.new(board, :white, [5, 1])
-    rook = Rook.new(board, :black, [6, 0])
-    queen = Queen.new(board, :white, [3, 4])
+    pawn = Pawn.new(board, :white, [6, 2])
+    pawn2 = Pawn.new(board, :black, [5, 1])
+    pawn3 = Pawn.new(board, :black, [1, 1])
+    bishop = Bishop.new(board, :black, [0, 2])
     # p pawn.available_moves
 
     board.place_piece(pawn)
-    board.place_piece(rook)
-    board.place_piece(queen)
     board.place_piece(pawn2)
+    board.place_piece(pawn3)
+    board.place_piece(bishop)
     render = BoardRender.new(board)
     render.render
 
     p pawn.available_moves
     p pawn2.available_moves
-    p rook.available_moves
+    p pawn3.available_moves
+    p bishop.available_moves
   end
 end
