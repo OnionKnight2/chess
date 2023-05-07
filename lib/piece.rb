@@ -12,13 +12,11 @@ class Piece
 
   # Check if a piece on a given position is an enemy.
   def enemy?(location)
-    row, column = location
     !board.return_piece(location).nil? && board.return_piece(location).color != color
   end
 
   # Check if a piece on a given position is a friend.
   def friend?(location)
-    row, column = location
     !board.return_piece(location).nil? && board.return_piece(location).color == color
   end
 end

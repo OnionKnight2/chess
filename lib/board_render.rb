@@ -16,7 +16,7 @@ class BoardRender
       8.times do |column|
         piece = board.return_piece([row, column])
         if piece.nil?
-          print "  "
+          print '  '
         else
           print "#{piece} "
         end

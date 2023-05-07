@@ -43,7 +43,7 @@ class Board
     board.place_piece(knight_black_one)
     board.place_piece(knight_black_two)
 
-    #White and black bishops
+    # White and black bishops
     bishop_white_one = Bishop.new(board, :white, [7, 2])
     bishop_white_two = Bishop.new(board, :white, [7, 5])
     bishop_black_one = Bishop.new(board, :black, [0, 2])
