@@ -79,10 +79,29 @@ class Board
     grid[row][column] = piece
   end
 
+  def remove_piece(piece)
+    row = piece.location[0]
+    column = piece.location[1]
+    grid[row][column] = nil
+  end
+
   # #return_piece method returns a piece from a specified location
   def return_piece(location)
     row, column = location
     grid[row][column]
+  end
+
+  # It should remove the piece from the board at current location.
+  # Also, it should change piece's location to a end_location if that location is available
+  def move_piece(start_location, end_location)
+    piece = return_piece(start_location)
+    if piece.nil? || !piece.available_moves.include?(end_location)
+      puts 'Invalid move!'
+    else
+      remove_piece(piece)
+      piece.location = end_location
+      place_piece(piece)
+    end
   end
 
   # #in_bounds? method checks if location in a grid is valid. Remember, our grid has 8 arrays of 8 elements.

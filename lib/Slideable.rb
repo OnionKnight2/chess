@@ -16,6 +16,12 @@ module Slideable
         current_column += y
         moves << [current_row, current_column]
       end
+
+      if enemy?([current_row + x, current_column + y])
+        current_row += x
+        current_column += y
+        moves << [current_row, current_column]
+      end
     end
 
     moves

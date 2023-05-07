@@ -2,7 +2,8 @@
 
 # Piece class will be inherited by all pieces
 class Piece
-  attr_reader :color, :board, :location
+  attr_accessor :location
+  attr_reader :color, :board
 
   def initialize(board, color, location)
     @board = board

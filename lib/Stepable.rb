@@ -10,7 +10,7 @@ module Stepable
       # Also, check if the enemy is on the next location
       current_row, current_column = location
 
-      unless !board.in_bounds?([current_row + x, current_column + y]) || friend?([current_row + x, current_column + y]) || enemy?([current_row + x, current_column + y])
+      unless !board.in_bounds?([current_row + x, current_column + y]) || friend?([current_row + x, current_column + y])
         current_row += x
         current_column += y
         moves << [current_row, current_column]

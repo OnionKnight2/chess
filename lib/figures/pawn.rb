@@ -33,11 +33,8 @@ class Pawn < Piece
 
     diag_left = [current_row + direction, current_column - 1]
     diag_right = [current_row + direction, current_column + 1]
-    if enemy?(diag_left)
-      moves << diag_left
-    elsif enemy?(diag_right)
-      moves << diag_right
-    end
+    moves << diag_left if enemy?(diag_left)
+    moves << diag_right if enemy?(diag_right)
 
     moves
   end
