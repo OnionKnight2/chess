@@ -17,8 +17,3 @@ class Queen
     color == :white ? "\u2655" : "\u265b"
   end
 end
-
-queen = Queen.new(:white)
-queen2 = Queen.new(:black)
-puts queen
-puts queen2

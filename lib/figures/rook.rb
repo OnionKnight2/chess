@@ -17,9 +17,3 @@ class Rook
     color == :white ? "\u2656" : "\u265c"
   end
 end
-
-rook = Rook.new(:white)
-rook2 = Rook.new(:black)
-
-puts rook
-puts rook2

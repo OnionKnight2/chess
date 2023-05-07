@@ -18,8 +18,3 @@ class Pawn
     color == :white ? "\u2659" : "\u265f"
   end
 end
-
-pawn = Pawn.new(:white)
-pawn2 = Pawn.new(:black)
-puts pawn
-puts pawn2

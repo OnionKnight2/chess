@@ -17,8 +17,3 @@ class King
     color == :white ? "\u2654" : "\u265a"
   end
 end
-
-king = King.new(:white)
-king2 = King.new(:black)
-puts king
-puts king2

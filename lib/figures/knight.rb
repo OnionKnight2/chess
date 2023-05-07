@@ -17,8 +17,3 @@ class Knight
     color == :white ? "\u2658" : "\u265e"
   end
 end
-
-knight = Knight.new(:white)
-knight2 = Knight.new(:black)
-puts knight
-puts knight2

@@ -17,8 +17,3 @@ class Bishop
     color == :white ? "\u2657" : "\u265d"
   end
 end
-
-bishop = Bishop.new(:white)
-bishop2 = Bishop.new(:black)
-puts bishop
-puts bishop2
