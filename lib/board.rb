@@ -17,51 +17,51 @@ class Board
 
     # White and black pawns
     8.times do |i|
-      pawn_white = Pawn.new(:white)
-      pawn_black = Pawn.new(:black)
+      pawn_white = Pawn.new(board, :white)
+      pawn_black = Pawn.new(board, :black)
       board.place_piece(pawn_white, [6, i])
       board.place_piece(pawn_black, [1, i])
     end
 
     # White and black rooks
-    rook_white_one = Rook.new(:white)
-    rook_white_two = Rook.new(:white)
-    rook_black_one = Rook.new(:black)
-    rook_black_two = Rook.new(:black)
+    rook_white_one = Rook.new(board, :white)
+    rook_white_two = Rook.new(board, :white)
+    rook_black_one = Rook.new(board, :black)
+    rook_black_two = Rook.new(board, :black)
     board.place_piece(rook_white_one, [7, 0])
     board.place_piece(rook_white_two, [7, 7])
     board.place_piece(rook_black_one, [0, 0])
     board.place_piece(rook_black_two, [0, 7])
 
     # White and black knights
-    knight_white_one = Knight.new(:white)
-    knight_white_two = Knight.new(:white)
-    knight_black_one = Knight.new(:black)
-    knight_black_two = Knight.new(:black)
+    knight_white_one = Knight.new(board, :white)
+    knight_white_two = Knight.new(board, :white)
+    knight_black_one = Knight.new(board, :black)
+    knight_black_two = Knight.new(board, :black)
     board.place_piece(knight_white_one, [7, 1])
     board.place_piece(knight_white_two, [7, 6])
     board.place_piece(knight_black_one, [0, 1])
     board.place_piece(knight_black_two, [0, 6])
 
     #White and black bishops
-    bishop_white_one = Bishop.new(:white)
-    bishop_white_two = Bishop.new(:white)
-    bishop_black_one = Bishop.new(:black)
-    bishop_black_two = Bishop.new(:black)
+    bishop_white_one = Bishop.new(board, :white)
+    bishop_white_two = Bishop.new(board, :white)
+    bishop_black_one = Bishop.new(board, :black)
+    bishop_black_two = Bishop.new(board, :black)
     board.place_piece(bishop_white_one, [7, 2])
     board.place_piece(bishop_white_two, [7, 5])
     board.place_piece(bishop_black_one, [0, 2])
     board.place_piece(bishop_black_two, [0, 5])
 
     # White and black queen
-    queen_white = Queen.new(:white)
-    queen_black = Queen.new(:black)
+    queen_white = Queen.new(board, :white)
+    queen_black = Queen.new(board, :black)
     board.place_piece(queen_white, [7, 3])
     board.place_piece(queen_black, [0, 3])
 
     # White and black king
-    king_white = King.new(:white)
-    king_black = King.new(:black)
+    king_white = King.new(board, :white)
+    king_black = King.new(board, :black)
     board.place_piece(king_white, [7, 4])
     board.place_piece(king_black, [0, 4])
 

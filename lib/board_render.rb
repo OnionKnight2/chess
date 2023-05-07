@@ -26,8 +26,3 @@ class BoardRender
     puts '----------------'
   end
 end
-
-board = Board.start_chess
-
-render = BoardRender.new(board)
-render.render

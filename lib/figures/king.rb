@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
+require_relative '../piece'
+
 # King class holds the king's color
-class King
-  attr_reader :color
-
-  def initialize(color)
-    @color = color
-  end
-
+class King < Piece
   # King can move 1 step in each direction
   def move_directions
     [[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]]

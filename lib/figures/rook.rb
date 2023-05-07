@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
+require_relative '../piece'
+
 # Rook class holds the rook's color
-class Rook
-  attr_reader :color
-
-  def initialize(color)
-    @color = color
-  end
-
+class Rook < Piece
   # Rook can move horizontally or vertically. (up, down, right, left)
   def move_directions
     [[0, 1], [0, -1], [1, 0], [-1, 0]]

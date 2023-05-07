@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
+require_relative '../piece'
+
 # Bishop class holds the bishop's color
-class Bishop
-  attr_reader :color
-
-  def initialize(color)
-    @color = color
-  end
-
+class Bishop < Piece
   # Bishop can move diagonally
   def move_directions
     [[1, 1], [1, -1], [-1, 1], [-1, -1]]

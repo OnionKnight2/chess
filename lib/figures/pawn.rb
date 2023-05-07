@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
+require_relative '../piece'
+
 # Pawn class holds the pawn's color
-class Pawn
-  attr_reader :color
-
-  def initialize(color)
-    @color = color
-  end
-
+class Pawn < Piece
   # Pawn can move 2 steps forward in the beginning or 1 step forward in general.
   # Also, when it can move diagonally one step when it eats opponent's piece.
   def move_directions
-
+    [[0, 1]]
   end
 
   def to_s 
