@@ -22,21 +22,37 @@ class Game
     # Render a board
     renderer.render
 
-    # Prompt user for a move until the move is legit
+    until over?
+      take_turn
+      # Clear the terminal
+      puts `clear`
+      renderer.render
+      swap_turn
+    end
+  end
+
+  def over?
+
+  end
+
+  def take_turn
+    # Prompt user for a move until the move is legit. Meaning that starting position is not nil,
+    # selected piece's color is correct and there are available moves for this piece.
     piece_start = input_select
-    until !board.return_piece(piece_start).nil? && board.return_piece(piece_start).color == current_player.color && !board.return_piece(piece_start).available_moves.empty?
+    until board.in_bounds?(piece_start) && !board.return_piece(piece_start).nil? && board.return_piece(piece_start).color == current_player.color && !board.return_piece(piece_start).available_moves.empty?
+      puts 'Invalid location'
       piece_start = input_select
     end
 
+    # Selected move needs to be one of the available moves
     piece_end = input_destination
     until board.return_piece(piece_start).available_moves.include?(piece_end)
+      puts "Available moves are: #{board.return_piece(piece_start).available_moves}"
       piece_end = input_destination
     end
 
-    # Make a move and change a turn
+    # Make a move
     board.move_piece(piece_start, piece_end)
-    renderer.render
-    swap_turn
   end
 
   # Change who's move it is
