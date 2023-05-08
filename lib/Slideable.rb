@@ -17,7 +17,7 @@ module Slideable
         moves << [current_row, current_column]
       end
 
-      if enemy?([current_row + x, current_column + y])
+      if board.in_bounds?([current_row + x, current_column + y]) && enemy?([current_row + x, current_column + y])
         current_row += x
         current_column += y
         moves << [current_row, current_column]
