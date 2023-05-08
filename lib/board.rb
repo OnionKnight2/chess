@@ -109,4 +109,24 @@ class Board
     row, column = location
     row < grid.length && row >= 0 && column < grid.first.length && column >= 0
   end
+
+  # Returns an array of all pieces
+  def return_pieces
+    grid.flatten.reject(&:nil?)
+  end
+
+  # Check if a player with 'color' color is in check
+  def in_check?(color)
+    # Loop over all the pieces of opposite color and check if any piece has the king's position in available moves.
+    opposite_color = color.eql?(:white) ? :black : :white
+    king_position = return_pieces.find { |piece| piece.color == color && piece.is_a?(King) }.location
+    return_pieces.select { |piece| piece.color == opposite_color }.any? { |piece| piece.available_moves.include?(king_position) }
+  end
+
+  # Check if a plalyer with 'color' color is in checkmate
+  def checkmate?(color)
+    # Loop over all the pieces of 'color' color and check if there are any moves for them to do
+    # Remember, piece can't go into a check
+    return_pieces.select { |piece| piece.color == color }.all? { |piece| piece.safe_moves.empty? }
+  end
 end
