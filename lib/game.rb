@@ -22,6 +22,9 @@ class Game
     # Render a board
     renderer.render
 
+    puts board.in_check?(current_player.color)
+    puts board.checkmate?(current_player.color)
+
     until over?
       take_turn
       # Clear the terminal
