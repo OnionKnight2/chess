@@ -28,7 +28,7 @@ class Piece
     available_moves.each do |move|
       # Make a deep copy of board to try out if the move leads to check.
       board_copy = Marshal.load(Marshal.dump(board))
-      board_copy.move_piece(location, move)
+      board_copy.move_piece!(location, move)
       moves << move unless board_copy.in_check?(color)
     end
 

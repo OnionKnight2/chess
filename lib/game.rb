@@ -22,10 +22,9 @@ class Game
     # Render a board
     renderer.render
 
-    puts board.in_check?(current_player.color)
-    puts board.checkmate?(current_player.color)
-
     until over?
+      # Let player know if he's in check.
+      puts 'You are in check!' if board.in_check?(current_player.color)
       take_turn
       # Clear the terminal
       puts `clear`
@@ -35,22 +34,22 @@ class Game
   end
 
   def over?
-
+    board.checkmate?(current_player.color)
   end
 
   def take_turn
     # Prompt user for a move until the move is legit. Meaning that starting position is not nil,
     # selected piece's color is correct and there are available moves for this piece.
     piece_start = input_select
-    until board.in_bounds?(piece_start) && !board.return_piece(piece_start).nil? && board.return_piece(piece_start).color == current_player.color && !board.return_piece(piece_start).available_moves.empty?
+    until board.in_bounds?(piece_start) && !board.return_piece(piece_start).nil? && board.return_piece(piece_start).color == current_player.color && !board.return_piece(piece_start).safe_moves.empty?
       puts 'Invalid location'
       piece_start = input_select
     end
 
     # Selected move needs to be one of the available moves
     piece_end = input_destination
-    until board.return_piece(piece_start).available_moves.include?(piece_end)
-      puts "Available moves are: #{board.return_piece(piece_start).available_moves}"
+    until board.return_piece(piece_start).safe_moves.include?(piece_end)
+      puts "Available moves are: #{board.return_piece(piece_start).safe_moves}"
       piece_end = input_destination
     end
 

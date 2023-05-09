@@ -95,13 +95,17 @@ class Board
   # Also, it should change piece's location to a end_location if that location is available
   def move_piece(start_location, end_location)
     piece = return_piece(start_location)
-    if piece.nil? || !piece.available_moves.include?(end_location)
+    if piece.nil? || !piece.safe_moves.include?(end_location)
       puts 'Invalid move!'
-    else
-      remove_piece(piece)
-      piece.location = end_location
-      place_piece(piece)
     end
+    move_piece!(start_location, end_location)
+  end
+
+  def move_piece!(start_location, end_location)
+    piece = return_piece(start_location)
+    remove_piece(piece)
+    piece.location = end_location
+    place_piece(piece)
   end
 
   # #in_bounds? method checks if location in a grid is valid. Remember, our grid has 8 arrays of 8 elements.
