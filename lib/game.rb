@@ -24,17 +24,25 @@ class Game
 
     until over?
       # Let player know if he's in check.
-      puts 'You are in check!' if board.in_check?(current_player.color)
+      puts "\n\nYou are in check!" if board.in_check?(current_player.color)
       take_turn
       # Clear the terminal
       puts `clear`
       renderer.render
       swap_turn
     end
+
+    renderer.render
+    # Congratulate the winner
+    puts "Congratulations, #{return_winner.name}. You Won!!!"
   end
 
   def over?
     board.checkmate?(current_player.color)
+  end
+
+  def return_winner
+    board.checkmate?(current_player.color) ? player_one : player_two
   end
 
   def take_turn
