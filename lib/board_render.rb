@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'board'
+require 'colorize'
 
 # BoardRender class will render a board, representing a chess board with text
 class BoardRender
@@ -12,17 +13,17 @@ class BoardRender
 
   def render
     8.times do |row|
-      puts '----------------'
       8.times do |column|
         piece = board.return_piece([row, column])
         if piece.nil?
-          print '  '
+          print '  '.colorize(:background => :white) if (row + column) % 2 == 0
+          print '  '.colorize(:background => :green) if (row + column) % 2 != 0
         else
-          print "#{piece} "
+          print "#{piece} ".colorize(:color => :black, :background => :white) if (row + column) % 2 == 0
+          print "#{piece} ".colorize(:color => :black, :background => :green) if (row + column) % 2 != 0
         end
       end
       puts ''
     end
-    puts '----------------'
   end
 end
