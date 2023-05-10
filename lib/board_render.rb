@@ -5,7 +5,7 @@ require 'colorize'
 
 # BoardRender class will render a board, representing a chess board with text
 class BoardRender
-  attr_reader :board
+  attr_accessor :board
 
   def initialize(board)
     @board = board

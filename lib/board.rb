@@ -9,7 +9,7 @@ require_relative './figures/rook'
 
 # Board class will hold a 8x8 grid of nil and pieces
 class Board
-  attr_reader :grid
+  attr_accessor :grid
 
   # Set up starting positions for all the pieces
   def self.start_chess
